@@ -1,0 +1,16 @@
+.menu {
+    padding: 1rem 0;
+    width: 100%;
+    text-align: center;
+    position: relative;
+}
+.menu__item {
+    display: inline-block;
+    text-transform: uppercase;
+    margin: 0 1.25rem;
+    text-shadow: 1px 1px 10px #000;
+}
+.menu__icon {
+    width: 2.5rem;
+    filter: drop-shadow(1px 1px 10px rgba(0, 0, 0, .5));
+}

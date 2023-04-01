@@ -1,0 +1,107 @@
+@import url('/assets/css/reset.css');
+@import url('/assets/css/global.css');
+@import url('/assets/css/menu.css');
+
+body {
+    background-color: #130804;
+}
+body::before {
+    content: "";
+    background-image: url('/assets/images/background.jpg');
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background-size: cover;
+    background-position: absolute;
+    background-repeat: no-repeat;
+    opacity: 0.3;
+    transition: background-image 1s ease-in-out, opacity 1s ease-in-out;
+}
+
+.container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    margin-top: 1rem;
+}
+
+.card {
+    border: 0.5rem solid #09040261;
+    width: calc(100% / 3 - 8%);
+    height: 70vh;
+    position: relative;
+    transition: filter 1s ease-in-out;
+}
+.card__background {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+}
+.card__title {
+    width: 100%;
+    object-fit: contain;
+    position: absolute;
+    bottom: 2rem;
+    transition: 1s ease-in-out;
+}
+.card--hovered .card__background {
+    cursor: pointer;
+}
+.card--hovered .card__title {
+    transform: scale(1.2);
+    filter: drop-shadow(10px 10px 2px rgba(0, 0, 0, .5));
+}
+
+.controller {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2rem;
+}
+.controller__button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.5rem;
+    height: 2.5rem;
+    border: 2px solid #c1c1c1;
+    border-radius: 50%;
+    background-color: #33241c;
+    text-align: center;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    z-index: 1;
+    transition: transform 0.3s ease-in-out;
+}
+.controller__button:hover {
+    transform: scale(1.1);
+}
+.controller__button:nth-child(2) {
+    margin: 0 3.75rem;
+}
+.controller__line {
+    background-color: #c1c1c1;
+    width: 18%;
+    height: 2px;
+    position: absolute;
+}
+
+body#movie-1--hovered::before {
+    background-image: url('/assets/images/fellowship/homepage-1.jpg');
+}
+body#movie-2--hovered::before {
+    background-image: url('/assets/images/two-towers/homepage-2.jpg');
+}
+body#movie-3--hovered::before {
+    background-image: url('/assets/images/return-king/homepage-3.jpg');
+}
+body[id^="movie-"]::before {
+    opacity: 0.7;
+}
+body[id^="movie-"] .card:not(.card--hovered) {
+    filter: grayscale(100%);
+}
